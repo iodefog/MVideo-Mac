@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		C71442F41EF3C97700F059D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C71442F31EF3C97700F059D6 /* AppDelegate.m */; };
 		C71442F71EF3C97700F059D6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C71442F61EF3C97700F059D6 /* main.m */; };
-		C71442FA1EF3C97700F059D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71442F91EF3C97700F059D6 /* ViewController.m */; };
 		C71442FC1EF3C97700F059D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C71442FB1EF3C97700F059D6 /* Assets.xcassets */; };
 		C71442FF1EF3C97700F059D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71442FD1EF3C97700F059D6 /* Main.storyboard */; };
+		C71443231EF3E02D00F059D6 /* MLiveListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C714431B1EF3E02D00F059D6 /* MLiveListViewController.m */; };
+		C71443241EF3E02D00F059D6 /* MMovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C714431E1EF3E02D00F059D6 /* MMovieModel.m */; };
+		C71443251EF3E02D00F059D6 /* MLivePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71443211EF3E02D00F059D6 /* MLivePlayerViewController.m */; };
+		C71443291EF3E07D00F059D6 /* NameCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = C71443281EF3E07D00F059D6 /* NameCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,11 +22,17 @@
 		C71442F21EF3C97700F059D6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C71442F31EF3C97700F059D6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C71442F61EF3C97700F059D6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C71442F81EF3C97700F059D6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C71442F91EF3C97700F059D6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C71442FB1EF3C97700F059D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C71442FE1EF3C97700F059D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C71443001EF3C97700F059D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C714431A1EF3E02D00F059D6 /* MLiveListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLiveListViewController.h; sourceTree = "<group>"; };
+		C714431B1EF3E02D00F059D6 /* MLiveListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLiveListViewController.m; sourceTree = "<group>"; };
+		C714431D1EF3E02D00F059D6 /* MMovieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMovieModel.h; sourceTree = "<group>"; };
+		C714431E1EF3E02D00F059D6 /* MMovieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMovieModel.m; sourceTree = "<group>"; };
+		C71443201EF3E02D00F059D6 /* MLivePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLivePlayerViewController.h; sourceTree = "<group>"; };
+		C71443211EF3E02D00F059D6 /* MLivePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLivePlayerViewController.m; sourceTree = "<group>"; };
+		C71443271EF3E07D00F059D6 /* NameCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameCellView.h; sourceTree = "<group>"; };
+		C71443281EF3E07D00F059D6 /* NameCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +67,8 @@
 			children = (
 				C71442F21EF3C97700F059D6 /* AppDelegate.h */,
 				C71442F31EF3C97700F059D6 /* AppDelegate.m */,
-				C71442F81EF3C97700F059D6 /* ViewController.h */,
-				C71442F91EF3C97700F059D6 /* ViewController.m */,
+				C71443151EF3E02D00F059D6 /* LiveList */,
+				C714431F1EF3E02D00F059D6 /* LivePlayer */,
 				C71442FB1EF3C97700F059D6 /* Assets.xcassets */,
 				C71442FD1EF3C97700F059D6 /* Main.storyboard */,
 				C71443001EF3C97700F059D6 /* Info.plist */,
@@ -74,6 +83,52 @@
 				C71442F61EF3C97700F059D6 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C71443151EF3E02D00F059D6 /* LiveList */ = {
+			isa = PBXGroup;
+			children = (
+				C71443191EF3E02D00F059D6 /* Controller */,
+				C71443261EF3E07D00F059D6 /* View */,
+				C714431C1EF3E02D00F059D6 /* Model */,
+			);
+			path = LiveList;
+			sourceTree = "<group>";
+		};
+		C71443191EF3E02D00F059D6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C714431A1EF3E02D00F059D6 /* MLiveListViewController.h */,
+				C714431B1EF3E02D00F059D6 /* MLiveListViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C714431C1EF3E02D00F059D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C714431D1EF3E02D00F059D6 /* MMovieModel.h */,
+				C714431E1EF3E02D00F059D6 /* MMovieModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C714431F1EF3E02D00F059D6 /* LivePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				C71443201EF3E02D00F059D6 /* MLivePlayerViewController.h */,
+				C71443211EF3E02D00F059D6 /* MLivePlayerViewController.m */,
+			);
+			path = LivePlayer;
+			sourceTree = "<group>";
+		};
+		C71443261EF3E07D00F059D6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C71443271EF3E07D00F059D6 /* NameCellView.h */,
+				C71443281EF3E07D00F059D6 /* NameCellView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +201,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C71442FA1EF3C97700F059D6 /* ViewController.m in Sources */,
+				C71443231EF3E02D00F059D6 /* MLiveListViewController.m in Sources */,
+				C71443251EF3E02D00F059D6 /* MLivePlayerViewController.m in Sources */,
+				C71443241EF3E02D00F059D6 /* MMovieModel.m in Sources */,
 				C71442F71EF3C97700F059D6 /* main.m in Sources */,
 				C71442F41EF3C97700F059D6 /* AppDelegate.m in Sources */,
+				C71443291EF3E07D00F059D6 /* NameCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -249,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

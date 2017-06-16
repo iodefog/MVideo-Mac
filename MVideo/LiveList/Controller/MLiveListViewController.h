@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MLiveListViewController.h
 //  MVideo
 //
 //  Created by LHL on 2017/6/16.
@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ViewController : NSViewController
-
+@interface MLiveListViewController : NSViewController
 
 @end
-
