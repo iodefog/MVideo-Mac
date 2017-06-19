@@ -41,25 +41,31 @@
 - (void)play:(NSNotification *)notification{
     self.model = notification.object;
    
-    AVPlayer *player =  self.playerView.player;
+    @try {
+        AVPlayer *player =  self.playerView.player;
+        
+        [player replaceCurrentItemWithPlayerItem:nil];
+        
+        [self.currentAsset cancelLoading];
+        self.currentAsset = nil;
+        
+        AVAsset *asset = [AVAsset assetWithURL:[NSURL URLWithString:self.model.url]];
+        self.currentAsset = asset;
+        
+        __weak typeof(self) mySelf = self;
+        [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
+            dispatch_async( dispatch_get_main_queue(), ^{
+                AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:mySelf.currentAsset automaticallyLoadedAssetKeys:nil];
+                [player replaceCurrentItemWithPlayerItem:playerItem];
+                [player play];
+            });
+        }];
 
-    [player replaceCurrentItemWithPlayerItem:nil];
-    
-    [self.currentAsset cancelLoading];
-    self.currentAsset = nil;
-
-    AVAsset *asset = [AVAsset assetWithURL:[NSURL URLWithString:self.model.url]];
-    self.currentAsset = asset;
-
-    __weak typeof(self) mySelf = self;
-    [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
-        dispatch_async( dispatch_get_main_queue(), ^{
-            AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:mySelf.currentAsset automaticallyLoadedAssetKeys:nil];
-            [player replaceCurrentItemWithPlayerItem:playerItem];
-            [player play];
-        });
-    }];
-    
+    } @catch (NSException *exception) {
+        
+    } @finally {
+        
+    }
 }
 
 
