@@ -44,7 +44,9 @@
     
     AVPlayer *player =  self.playerView.player;
     
-//    [player replaceCurrentItemWithPlayerItem:nil];
+    [player replaceCurrentItemWithPlayerItem:nil];
+    
+    sleep(0.3);
     
     [self.currentAsset cancelLoading];
     self.currentAsset = nil;

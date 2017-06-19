@@ -166,20 +166,30 @@
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification{
     
-    NSInteger selectedRow = [(NSTableView *)notification.object selectedRow];
-    
-    if ((selectedRow < 0) && (selectedRow > self.dataSource.count)) {
-        return;
-    }
-    
-    MMovieModel *model = self.dataSource[selectedRow];
-    
-    NSLog(@"选中");
-    
-    if (!model.url) {
-        return;
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"MLivePlayerViewToPlay" object:model];
+    static BOOL isWaiting = NO;
+    if(isWaiting) return;
+    isWaiting = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3*NSEC_PER_SEC), dispatch_get_global_queue(0, 0), ^{
+        
+        isWaiting = NO;
+
+        NSInteger selectedRow = [(NSTableView *)notification.object selectedRow];
+        
+        if ((selectedRow < 0) && (selectedRow > self.dataSource.count)) {
+            return;
+        }
+        
+        MMovieModel *model = self.dataSource[selectedRow];
+        
+        NSLog(@"选中");
+        
+        if (!model.url) {
+            return;
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"MLivePlayerViewToPlay" object:model];
+        });
+    });
 }
 
 
