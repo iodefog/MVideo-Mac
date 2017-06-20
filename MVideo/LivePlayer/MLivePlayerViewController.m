@@ -66,11 +66,15 @@
     }];
 }
 
-
 - (void)back:(id)sender {
     [self.playerView.player pause];
     [self.playerView removeFromSuperview];
     self.playerView = nil;
+}
+
+- (void)viewDidLayout{
+    [super viewDidLayout];
+    self.playerView.frame = self.view.bounds;
 }
 
 - (void)dealloc{
