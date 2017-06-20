@@ -43,10 +43,9 @@
     self.model = notification.object;
     
     AVPlayer *player =  self.playerView.player;
+    [player pause];
     
     [player replaceCurrentItemWithPlayerItem:nil];
-    
-    sleep(0.3);
     
     [self.currentAsset cancelLoading];
     self.currentAsset = nil;
@@ -56,11 +55,13 @@
     
     __weak typeof(self) mySelf = self;
     __weak typeof(AVPlayer *)myPlayer = player;
+    __block AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:mySelf.currentAsset automaticallyLoadedAssetKeys:nil];
+
     [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
         dispatch_async( dispatch_get_main_queue(), ^{
-            AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:mySelf.currentAsset automaticallyLoadedAssetKeys:nil];
             [myPlayer replaceCurrentItemWithPlayerItem:playerItem];
-            [myPlayer play];
+            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(play) object:nil];
+            [myPlayer performSelector:@selector(play) withObject:nil afterDelay:0.3];
         });
     }];
 }
