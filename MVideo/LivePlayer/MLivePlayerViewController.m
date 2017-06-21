@@ -10,7 +10,9 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface MLivePlayerViewController ()
+@interface MLivePlayerViewController (){
+    __block BOOL isLoading;
+}
 
 @property (nonatomic, strong) AVPlayerView *playerView;
 @property (nonatomic, strong) AVAsset *currentAsset;
@@ -38,6 +40,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(play:) name:@"MLivePlayerViewToPlay" object:nil];
 }
 
+
 - (void)play:(NSNotification *)notification{
     
     self.model = notification.object;
@@ -50,20 +53,27 @@
     [self.currentAsset cancelLoading];
     self.currentAsset = nil;
     
+    if (isLoading) {
+        return;
+    }
+    
     AVAsset *asset = [AVAsset assetWithURL:[NSURL URLWithString:self.model.url]];
     self.currentAsset = asset;
     
     __weak typeof(self) mySelf = self;
     __weak typeof(AVPlayer *)myPlayer = player;
     __block AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:mySelf.currentAsset automaticallyLoadedAssetKeys:nil];
-
-    [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
-        dispatch_async( dispatch_get_main_queue(), ^{
+    isLoading = YES;
+    
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
+            isLoading = NO;
             [myPlayer replaceCurrentItemWithPlayerItem:playerItem];
-            [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(play) object:nil];
-            [myPlayer performSelector:@selector(play) withObject:nil afterDelay:0.5];
-        });
-    }];
+            dispatch_async( dispatch_get_main_queue(), ^{
+                [myPlayer play];
+            });
+        }];
+    });
 }
 
 - (void)back:(id)sender {
