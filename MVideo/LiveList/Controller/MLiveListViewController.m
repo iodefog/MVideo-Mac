@@ -169,7 +169,7 @@
     static BOOL isWaiting = NO;
     if(isWaiting) return;
     isWaiting = YES;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5*NSEC_PER_SEC), dispatch_get_global_queue(0, 0), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.8*NSEC_PER_SEC), dispatch_get_global_queue(0, 0), ^{
         
         isWaiting = NO;
 

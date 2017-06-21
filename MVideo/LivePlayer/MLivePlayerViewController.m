@@ -61,7 +61,7 @@
         dispatch_async( dispatch_get_main_queue(), ^{
             [myPlayer replaceCurrentItemWithPlayerItem:playerItem];
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(play) object:nil];
-            [myPlayer performSelector:@selector(play) withObject:nil afterDelay:0.3];
+            [myPlayer performSelector:@selector(play) withObject:nil afterDelay:0.5];
         });
     }];
 }
