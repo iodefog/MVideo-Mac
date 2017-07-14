@@ -53,9 +53,9 @@
     [self.currentAsset cancelLoading];
     self.currentAsset = nil;
     
-    if (isLoading) {
-        return;
-    }
+//    if (isLoading) {
+//        return;
+//    }
     
     AVAsset *asset = [AVAsset assetWithURL:[NSURL URLWithString:self.model.url]];
     self.currentAsset = asset;
@@ -63,13 +63,13 @@
     __weak typeof(self) mySelf = self;
     __weak typeof(AVPlayer *)myPlayer = player;
     __block AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:mySelf.currentAsset automaticallyLoadedAssetKeys:nil];
-    isLoading = YES;
+//    isLoading = YES;
     
     dispatch_sync(dispatch_get_global_queue(0, 0), ^{
         [asset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
-            isLoading = NO;
-            [myPlayer replaceCurrentItemWithPlayerItem:playerItem];
+//            isLoading = NO;
             dispatch_async( dispatch_get_main_queue(), ^{
+                [myPlayer replaceCurrentItemWithPlayerItem:playerItem];
                 [myPlayer play];
             });
         }];
