@@ -1,4 +1,4 @@
-## MVideo 各类直播列表集合
+## 妖孽Live 各类直播列表集合
 
 ----
 
@@ -19,7 +19,7 @@
 8.支持筛选搜索
 
 
-## MVideo-iPhone
+## 妖孽Live-iPhone
 
 -----
 
@@ -52,7 +52,9 @@ MV,http://live.g3proxy.lecloud.com/gslb?stream_id=lb_mv_720p&tag=live&ext=m3u8&s
 ```
 
 
-## MVideo-Mac
+## 妖孽Live-Mac
+
+[妖孽Live.dmg](https://github.com/lihongli528628/MVideo/blob/master/dmg/妖孽Live.dmg)
 
 -----
 
@@ -68,7 +70,7 @@ MV,http://live.g3proxy.lecloud.com/gslb?stream_id=lb_mv_720p&tag=live&ext=m3u8&s
 
 
 
-## MVideo-Mac2
+## 妖孽Live-Mac2
 
 -----
 
