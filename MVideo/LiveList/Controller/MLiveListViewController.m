@@ -40,6 +40,7 @@
          [[NSUserDefaults standardUserDefaults] setObject:text forKey:@"MVideoLiveListKey"];
          [self.dataSource removeAllObjects];
          [self refreshDataWithVideoText:videosText];
+         [self.tableView reloadData];
          NSLog(@"error = %@", error);
 
         }];
