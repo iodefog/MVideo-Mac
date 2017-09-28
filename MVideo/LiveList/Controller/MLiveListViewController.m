@@ -33,25 +33,27 @@
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSError *error = nil;
-        NSString *videosText = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"https://lihongli528628.github.io/text/live.txt"] encoding:NSUTF8StringEncoding error:&error];
-        [[NSUserDefaults standardUserDefaults] setObject:videosText forKey:@"MVideoLiveListKey"];
-        [self.dataSource removeAllObjects];
-        [self refreshDataWithVideoText:videosText];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://lihongli528628.github.io/text/live.txt"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20];
+     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
+         NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+         [[NSUserDefaults standardUserDefaults] setObject:text forKey:@"MVideoLiveListKey"];
+         [self.dataSource removeAllObjects];
+         [self refreshDataWithVideoText:videosText];
+         NSLog(@"error = %@", error);
+
+        }];
     });
 }
 
 - (void)refreshDataWithVideoText:(NSString *)videosText{
     [self transformVideoUrlFromString:videosText error:nil];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-        MMovieModel *model = [self.dataSource firstObject];
-        if (!model.url) {
-            return;
-        }
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"MLivePlayerViewToPlay" object:model];
-        
-    });
-
+    [self.tableView reloadData];
+    MMovieModel *model = [self.dataSource firstObject];
+    if (!model.url) {
+        return;
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MLivePlayerViewToPlay" object:model];
 }
 
 

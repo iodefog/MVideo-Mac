@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -664,12 +665,15 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="MVideo直播" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="妖孽Live" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="1000" height="600"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="1000" height="600"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="fXY-oG-ofF"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="awv-ZB-5LR" kind="relationship" relationship="window.shadowedContentViewController" id="FcH-r2-ax7"/>
@@ -690,8 +694,12 @@
                     <splitView key="splitView" misplaced="YES" dividerStyle="thin" vertical="YES" id="U3y-89-laS">
                         <rect key="frame" x="0.0" y="13" width="1000" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="awv-ZB-5LR" id="NYY-AW-Ulw"/>
+                        </connections>
                     </splitView>
                     <connections>
+                        <outlet property="splitView" destination="U3y-89-laS" id="FB1-SV-cKA"/>
                         <segue destination="d3q-BH-7OZ" kind="relationship" relationship="splitItems" id="zsr-6l-Wgm"/>
                         <segue destination="967-Y7-ise" kind="relationship" relationship="splitItems" id="fUA-am-5Kh"/>
                     </connections>
@@ -711,7 +719,7 @@
                             <rect key="frame" x="2" y="2" width="196" height="596"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1do-oG-o8d">
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1do-oG-o8d">
                                     <rect key="frame" x="0.0" y="565" width="200" height="31"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="31" id="Q0q-pG-Bq8"/>
@@ -755,7 +763,7 @@
                                                                 <rect key="frame" x="1" y="1" width="195" height="80"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9T-Ok-ABm">
+                                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="v9T-Ok-ABm">
                                                                         <rect key="frame" x="0.0" y="0.0" width="195" height="80"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="80" id="ITu-H0-VCr"/>
