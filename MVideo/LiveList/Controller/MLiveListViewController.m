@@ -34,7 +34,7 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSError *error = nil;
         
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://lihongli528628.github.io/text/live.txt"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://iodefog.github.io/text/live.txt"] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:20];
      [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
          NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
          [[NSUserDefaults standardUserDefaults] setObject:text forKey:@"MVideoLiveListKey"];
